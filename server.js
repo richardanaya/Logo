@@ -1,5 +1,16 @@
-var http = require('http');
-http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Hello World\nApp (logo) is running..');
-}).listen(9753);
+express = require('express')
+
+var app = express.createServer()
+
+app.configure( 
+    function() {
+	app.use(express.static(__dirname + '/root'));
+    }
+);
+
+app.get(/^.*$/, 
+    function(req, res) {
+	res.redirect('index.html');
+    }
+);
+app.listen(9753)
