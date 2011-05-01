@@ -6,6 +6,15 @@ clear = function() {
     ctx.fillRect(0,0,canvas.width,canvas.height);
 }
 
+pen_is_down = true;
+
+pen_up = function() {
+    pen_is_down = false;
+}
+
+pen_down = function() {
+    pen_is_down = true;
+}
 scale = function(s) {
     movement_scale = s;
 }
@@ -58,14 +67,19 @@ rad = function(deg) {
 }
 
 move = function(distance) {
+
     var delta_x = distance*Math.cos(rad(rotation));
     var delta_y = distance*Math.sin(rad(rotation));
-    ctx.beginPath();
-    ctx.moveTo(canvas.width/2+location_x,canvas.height/2+location_y);
+    if( pen_is_down ) {
+	ctx.beginPath();
+	ctx.moveTo(canvas.width/2+location_x,canvas.height/2+location_y);
+    }
     location_x += delta_x*movement_scale;
     location_y += delta_y*movement_scale;
-    ctx.lineTo(canvas.width/2+location_x,canvas.height/2+location_y);
-    ctx.stroke();
+    if( pen_is_down ) {
+	ctx.lineTo(canvas.width/2+location_x,canvas.height/2+location_y);
+	ctx.stroke();
+    }
 }
 
 rotate = function(deg) {
@@ -82,6 +96,7 @@ reset = function() {
     rotation = 270;
     movement_scale = 1;
     ctx.strokeStyle = 'white';
+    pen_is_down = true;
 }
 
 draw = function() { 
