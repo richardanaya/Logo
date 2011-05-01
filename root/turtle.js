@@ -124,7 +124,7 @@ on_run = function() {
 start = function() {
     canvas = $('#screen').get(0);
     ctx = canvas.getContext('2d');
-    $('#turtle_script').keydown(function(event) {
+    $(document).keydown(function(event) {
 	  if (event.keyCode == '82' && event.ctrlKey ) {
 	      on_run();
 	  }
