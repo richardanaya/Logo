@@ -8,9 +8,9 @@ app.configure(
     }
 );
 
-/*app.get(/^.*$/, 
+app.get(/^.*$/, 
     function(req, res) {
 	res.redirect('index.html');
     }
-);*/
+);
 app.listen(9753)
