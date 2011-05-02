@@ -1,5 +1,8 @@
 .header_text { width: 940px; }
+#turtle_script { float:left; width: 300px; height: 480px; font-size: 16px; font-family:'Droid Sans Mono', arial, serif; }
+a, a:hover, a:visited { color: red;}
 body {
+    font-family: 'Droid Sans Mono', arial, serif;
     background-color: #25272b;
     color: white;
 }
