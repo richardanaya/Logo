@@ -133,5 +133,8 @@ start = function() {
     clear();
     reset();
     draw_turtle();
-    $('#turtle_script').val(localStorage.getItem('script'));
+    var s = localStorage.getItem('script');
+    if( s != null && s != undefined) {
+	$('#turtle_script').val(s);
+    }
 }
