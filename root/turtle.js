@@ -125,7 +125,7 @@ start = function() {
     canvas = $('#screen').get(0);
     ctx = canvas.getContext('2d');
     $(document).keydown(function(event) {
-	  if (event.keyCode == '82' && event.ctrlKey ) {
+	  if (event.keyCode == '87' && event.ctrlKey ) {
 	      on_run();
 	  }
     });
